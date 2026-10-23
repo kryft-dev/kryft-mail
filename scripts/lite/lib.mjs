@@ -184,7 +184,8 @@ export function buildLiteConfig(env = {}, { target = "static" } = {}) {
 function readConfigOverlay(file) {
   const name = (file ?? "").trim();
   if (!name) return {};
-  const { _comment, ...overlay } = JSON.parse(readFileSync(join(resolveRepoRoot(import.meta.url), name), "utf8"));
+  const overlay = JSON.parse(readFileSync(join(resolveRepoRoot(import.meta.url), name), "utf8"));
+  delete overlay._comment;
   return overlay;
 }
 
