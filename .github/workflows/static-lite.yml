@@ -77,6 +77,8 @@ jobs:
           NEXT_PUBLIC_BASE_PATH: ${{ matrix.target == 'static' && inputs.base_path || '' }}
           LITE_JMAP_SERVER_URL: ${{ inputs.jmap_server_url }}
           LITE_APP_NAME: ${{ inputs.app_name }}
+          # Kryft Mail: branding merged over config.json (see KRYFT.md).
+          LITE_CONFIG_OVERLAY: lite-config.overlay.json
           LITE_LOCALES: ${{ inputs.locales }}
           LITE_DEMO_MODE: ${{ inputs.demo }}
         run: npm run build:lite

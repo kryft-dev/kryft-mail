@@ -1,0 +1,12 @@
+{
+  "_comment": "Kryft Mail branding, merged over the Lite config.json defaults when LITE_CONFIG_OVERLAY names this file (static-lite.yml does). See KRYFT.md.",
+  "appName": "Kryft Mail",
+  "faviconUrl": "/branding/kryft/favicon.svg",
+  "appLogoLightUrl": "/branding/kryft/logo-transparent.svg",
+  "appLogoDarkUrl": "/branding/kryft/logo-dark.svg",
+  "loginLogoLightUrl": "/branding/kryft/logo-transparent.svg",
+  "loginLogoDarkUrl": "/branding/kryft/logo-dark.svg",
+  "loginCompanyName": "Kryft",
+  "loginWebsiteUrl": "https://kryft.dev",
+  "sourceCodeUrl": "https://github.com/kryft-dev/kryft-mail"
+}

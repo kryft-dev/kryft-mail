@@ -170,7 +170,22 @@ export function buildLiteConfig(env = {}, { target = "static" } = {}) {
     demoMode: parseBool(env.LITE_DEMO_MODE, false),
     loginShowTotp: true,
     loginShowVersion: true,
+    ...readConfigOverlay(env.LITE_CONFIG_OVERLAY),
   };
+}
+
+/**
+ * Kryft Mail: deployer keys (branding, links) from a JSON file named by
+ * LITE_CONFIG_OVERLAY, relative to the repo root, merged last so they win.
+ * Unset means no overlay, which keeps upstream's own builds and tests as they
+ * were. A named file that is missing fails the build rather than shipping an
+ * unbranded bundle.
+ */
+function readConfigOverlay(file) {
+  const name = (file ?? "").trim();
+  if (!name) return {};
+  const { _comment, ...overlay } = JSON.parse(readFileSync(join(resolveRepoRoot(import.meta.url), name), "utf8"));
+  return overlay;
 }
 
 /** policy.json: only the gates Lite must pin; the app merges the rest over its defaults. */

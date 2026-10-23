@@ -1227,3 +1227,23 @@ optgroup {
     width: var(--mv-rail-peek-w);
   }
 }
+
+/* Kryft Mail: the brand palette (https://kryft.dev/brand/) is monochrome
+   zinc, so upstream's blue primary and accent give way to it. Kept as one
+   appended block so upstream merges never touch it. The .dark block must
+   stay after :root -- both match <html>, and the later rule wins. */
+:root {
+  --color-ring: #62626c;
+  --color-primary: #09090b;
+  --color-primary-foreground: #fafafa;
+  --color-accent: #f4f4f5;
+  --color-accent-foreground: #09090b;
+}
+
+.dark {
+  --color-ring: #d4d4d4;
+  --color-primary: #fafafa;
+  --color-primary-foreground: #09090b;
+  --color-accent: #27272a;
+  --color-accent-foreground: #fafafa;
+}
